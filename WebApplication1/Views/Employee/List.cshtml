@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <p>
+        @Html.ActionLink("Add New", "Create", "Product")
+    </p>
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Action</th>
+        </tr>
+        @foreach (MVC_Core_App.Models.Employee Emp in ViewBag.EmployeeList)
+        {
+            <tr>
+                <td>@Emp.Id</td>
+                <td>@Emp.Name</td>
+                <td>@Emp.Salary</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { @id = Emp.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { @id = Emp.Id })
+                </td>
+            </tr>
+        }
+    </table>
+
+}
+
+}
